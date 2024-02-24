@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "user")
 @Getter
@@ -29,6 +32,7 @@ public class User {
     @Size(min = 8, max = 100)
     private String password;
 
-//    private List<Task> tasks;
+    @OneToMany(mappedBy = "user")
+    private List<Task> tasks = new ArrayList<>();
 
 }
